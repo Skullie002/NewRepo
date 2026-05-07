@@ -1,0 +1,162 @@
+1
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>String Replacement Form</title>
+
+</head>
+
+<body>
+
+ 
+
+<h2>String Replacement Form</h2>
+
+ 
+
+<form method="post">
+
+    <?php
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+        $original = $_POST["originalString"];
+
+        $search = $_POST["searchString"];
+
+        $replace = $_POST["replaceString"];
+
+        echo "<h3>Result:</h3>
+
+              Original String: $original<br>
+
+              String to Replace: $search<br>
+
+              Replacement String: $replace<br>
+
+              Result String: " . str_replace($search, $replace, $original);
+
+    }
+
+    ?>
+
+    <br><br>
+
+    Original String: <input type="text" name="originalString" required><br><br>
+
+    String to Replace: <input type="text" name="searchString" required><br><br>
+
+    Replacement String: <input type="text" name="replaceString" required><br><br>
+
+    <input type="submit" name="submit" value="Replace">
+
+</form>
+</body>
+</html>
+2
+XML 
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bookstore>
+
+    <book>
+
+        <title>PHP Programming</title>
+
+        <author>John Doe</author>
+
+        <price>29.99</price>
+
+    </book>
+
+    <book>
+
+        <title>Web Development Basics</title>
+
+        <author>Jane Smith</author>
+
+        <price>19.95</price>
+
+    </book>
+
+</bookstore>
+
+ 
+
+ 
+
+ 
+
+Php
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>XML File Loader</title>
+
+</head>
+
+<body>
+
+ 
+
+<h2>XML File Loader</h2>
+
+ 
+
+<?php
+
+// Load the XML file
+
+$xml = simplexml_load_file('example.xml');
+
+ 
+
+// Check if the XML is successfully loaded
+
+if ($xml) {
+
+    // Display the content of the XML file
+
+    echo "<h3>Book Information:</h3>";
+
+ 
+
+    foreach ($xml->book as $book) {
+
+        echo "Title: " . $book->title . "<br>";
+
+        echo "Author: " . $book->author . "<br>";
+
+        echo "Price: $" . $book->price . "<br><br>";
+
+    }
+
+} else {
+
+    echo "<p>Error loading XML file.</p>";
+
+}
+
+?>
+
+ 
+
+</body>
+
+</html>
